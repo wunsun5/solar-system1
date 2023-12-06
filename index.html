@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solar System 1</title>
+    <style>
+        body{
+            display: flex;
+            position: relative;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: black;
+        }
+
+        .sun{
+            width: 8em;
+            height: 8em;
+            background-color: rgb(255, 204, 0);
+            border-radius: 50%;
+            box-shadow: 0 0 40px rgba(250, 204, 0, .5);
+        }
+
+        .earth, .moon{
+            position: absolute;
+            border-style: solid;
+            border-color: white transparent;
+            border-width: 0.01em 0.01em 0 0;
+            border-radius: 50%;
+        }
+
+        .earth{
+            width: 25em;
+            height: 25em;
+            animation: revolution 36.5s linear infinite;
+        }
+
+        .moon{
+            top: 0;
+            right: .5em;
+            width: 7em;
+            height: 7em;
+            animation: revolution 5s linear infinite;
+        }
+
+        .moon::before, .earth::before{
+            content: '';
+            position: absolute;
+            border-radius: 50%;
+        }
+
+        .earth::before{
+            width: 2.8em;
+            height: 2.8em;
+            right: 2.6em;
+            top: 2.1em;
+            background-color: rgb(0, 238, 255);
+        }
+
+        .moon::before{
+            width: 1em;
+            height: 1em;
+            top: .2em;
+            right: .8em;
+            background-color: silver;
+        }
+
+        @keyframes revolution {
+            to{
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="sun"></div>
+    <div class="earth">
+        <div class="moon"></div>
+    </div>
+</body>
+</html>
